@@ -30,7 +30,7 @@ img_channels = 3
 X_train, Y_train, X_test, Y_test = set_para.preprocessing(X_train, y_train, X_test, y_test)
 
 changed_list = ['dense']
-print (changed_list[0] + ' is changed in' + strftime("%Y-%m-%d %H:%M:%S", gmtime()))
+print (changed_list[0] + ' is changed at ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 ds = 938
 acc = []
 avg_acc = []

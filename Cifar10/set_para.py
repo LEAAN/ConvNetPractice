@@ -14,7 +14,7 @@ from sklearn.cross_validation import train_test_split
 def preprocessing(X_train = None, y_train = None, X_test = None, y_test = None,
   nb_classes = 10, x = None, y = None, split = False, split_percent = 0.75, 
   to_categorical = True):
-  if y_train:
+  if y_train is not None:
     y_train = np.reshape(y_train,(len(y_train),1))
     y_test = np.reshape(y_test, (len(y_test),1))
   # # convert class vectors to binary class matrices
@@ -61,6 +61,7 @@ def readimage(labelist = None, label = None, x = None, color = True, resize = Tr
       ff = []
       for name in f:
         if (re.search(r'jpg', name)): ff.append(path + name)
+        if (re.search(r'pgm', name)): ff.append(path + name)
       f = ff
       f = sorted(f, key=functools.cmp_to_key(locale.strcoll))
    # If filenames are provided, directly read in images for all names in filenames
@@ -99,11 +100,12 @@ def readimage(labelist = None, label = None, x = None, color = True, resize = Tr
       print ('not cut, no resize')
       try:
         for name in f:
-          image = cv2.imread(name, cv2.CV_LOAD_IMAGE_COLOR)
+          # image = cv2.imread(name, cv2.CV_LOAD_IMAGE_COLOR)
           # image = cv2.imread(path+ name)
+          image = cv2.imread(name)
           pics.append(image)
       except: pass
-    # print ((np.asarray(pics).shape))
+    print ((np.asarray(pics).shape))
     print ('%s %d %s %d' % ('len of filenames is: ', len(f), 'len of pics is: ', len(pics)))
     pics = np.rollaxis(np.asarray(pics, dtype = float),3,1)
   # Cut size for large test pics

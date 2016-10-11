@@ -40,8 +40,7 @@ def epoch(modelname, modelpath, y,y1= None,y_para = None, y1_para = None, title 
 	plt.ylabel(y_name)
 	plt.savefig(modelpath + modelname + y_name + '_epoch.png')
 	plt.show()
-	# plt.axis([0,len(y),0,1])
-	# plt.axis(np.arange(0,len(y), 6))
+
 
 def weight(model= None, modelname = None, openpath = "/home/workstation/Documents/Cifar100/"):
 	if modelname is None:
@@ -153,38 +152,3 @@ def confusion(y_pred = None, y_true = None, cmap = plt.cm.Blues, title = 'Confus
     	ax.text(-0.45,-0.3, str(cm[1]), color = 'white')
     if savename:
 		plt.savefig(savepath + savename+ '.png')
-
-
-# print("Accuracy: %.2f%%" % (scores[1]*100))
-
-
-
-# def whatr():
-# 	for i in range(len(W0)):
-# 		plt.figure()
-# 		plt.title("conv1 w_"+str(i+1))
-# 		plt.imshow(W0[i])
-# 		plt.axis('off')
-# 		plt.savefig("W0"+str(i+1)+".png", bbox_inches='tight')
-
-# 	plt.clf()
-# 	for i in range(8):
-# 		for j in range(4):
-# 			plt.subplot(8,4,4*i+j+1)
-# 			plt.imshow(W0[4*i+j])
-# 			plt.axis('off')
-
-# 	plt.savefig("whole.png", bbox_inches='tight')
-
-
-# 	plt.clf()
-# 	for i in range(8):
-# 		for j in range(4):
-# 			plt.subplot(8,4,4*i+j+1)
-# 			plt.imshow(W0[4*i+j][:,0,:])
-# 			plt.axis('off')
-# 	plt.savefig("whole_G.png", bbox_inches='tight')
-
-# 	plt.clf()
-# 	plt.imshow(W0[0][0,:,:])
-# 	plt.savefig("test_RGB.png")
